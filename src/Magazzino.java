@@ -40,4 +40,44 @@ public class Magazzino {
         }
     }
 
+    public void searchBySellingPrice(float prezzo){
+        System.out.println("I dispositivi ricercati con questo criterio sono: ");
+        for (Prodotto prodotto : prodottiStored){
+            if (prodotto.getPrezzoVendita() == prezzo){
+                System.out.println(prodotto);
+            }
+        }
+    }
+
+    public void searchByPurchasePrice(float prezzo){
+        System.out.println("I dispositivi ricercati con questo criterio sono: ");
+        for (Prodotto prodotto : prodottiStored){
+            if (prodotto.getPrezzoAcquisto() == prezzo){
+                System.out.println(prodotto);
+            }
+        }
+    }
+
+    public void searchInRange (float prezzoInferiore, float prezzoSuperiore){
+        System.out.println("I dispositivi che rientrano nel range di prezzo selezionato sono: ");
+        for (Prodotto prodotto : prodottiStored){
+            if (prodotto.getPrezzoVendita() >= prezzoInferiore && prodotto.getPrezzoVendita() <= prezzoSuperiore){
+                System.out.println(prodotto);
+            }
+        }
+    }
+
+    public void addProduct(Prodotto prodotto){
+        prodottiStored.add(prodotto);
+    }
+
+    public void deleteProduct (Prodotto prodotto){
+        prodottiStored.remove(prodotto);
+    }
+
+    public void printMagazzino(){
+        for (Prodotto prodotto : this.prodottiStored){
+            System.out.println(prodotto);
+        }
+    }
 }
