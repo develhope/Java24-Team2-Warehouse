@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Magazzino {
-    private ArrayList<Prodotto> prodottiStored = new ArrayList<>();
+    protected ArrayList<Prodotto> prodottiStored = new ArrayList<>();
 
     public Magazzino() {
     }
@@ -39,5 +39,4 @@ public class Magazzino {
             }
         }
     }
-
 }
