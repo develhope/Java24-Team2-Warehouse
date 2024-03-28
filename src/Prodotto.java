@@ -24,12 +24,14 @@ public class Prodotto {
         this.id = id;
     }
 
-    public Prodotto(TipoProdotto tipo, String produttore, String modello, float prezzoVendita) {
+    public Prodotto(TipoProdotto tipo, String produttore, String modello, float prezzoVendita, int id) {
         this.tipo = tipo;
         this.produttore = produttore;
         this.modello = modello;
         this.prezzoVendita = prezzoVendita;
+        this.id = id;
     }
+
     public TipoProdotto getTipo() {
         return tipo;
     }

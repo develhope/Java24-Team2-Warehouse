@@ -1,10 +1,9 @@
 import java.util.ArrayList;
 
-public class Carrello extends Magazzino {
+public class Carrello {
     private ArrayList<Prodotto> purchasedProducts = new ArrayList<>();
 
     public Carrello() {
-
     }
 
     public ArrayList<Prodotto> getPurchasedProducts() {
@@ -15,29 +14,21 @@ public class Carrello extends Magazzino {
         this.purchasedProducts = purchasedProducts;
     }
 
-    public ArrayList<Prodotto> addProducts(int findId) {
-        for (Prodotto prodotto : prodottiStored) {
-            if (findId == prodotto.getId()) {
-                purchasedProducts.add(prodotto);
-                prodottiStored.remove(prodotto);
-                break;
-            }
-        }
-        return prodottiStored;
+    public void addProduct(Prodotto prodotto) {
+        this.purchasedProducts.add(prodotto);
     }
 
-    public ArrayList<Prodotto> remProduct(int findId) {
-        for (Prodotto prodotto : prodottiStored) {
-            if (findId == prodotto.getId()) {
+    public Prodotto deleteFromCart(int id) {
+        for (Prodotto prodotto : purchasedProducts) {
+            if (id == prodotto.getId()) {
                 purchasedProducts.remove(prodotto);
-                prodottiStored.add(prodotto);
-                break;
+                return prodotto;
             }
         }
-        return prodottiStored;
+        return null;
     }
 
-    public float tot() {
+    public float totaleCarrello() {
         float totale = 0;
         for (Prodotto prodotto : purchasedProducts) {
             totale += prodotto.getPrezzoVendita();
@@ -45,12 +36,12 @@ public class Carrello extends Magazzino {
         return totale;
     }
 
-    public float medium(TipoProdotto tipo) {
+    public float spesaMedia(TipoProdotto tipo) {
         float sum = 0;
         int count = 1;
         for (Prodotto prodotto : purchasedProducts) {
             if (prodotto.getTipo().equals(tipo)) {
-                sum += prodotto.getPrezzoAcquisto() / count;
+                sum += prodotto.getPrezzoAcquisto();
                 count++;
             }
         }
@@ -58,9 +49,7 @@ public class Carrello extends Magazzino {
     }
 
     public void checkout() {
-        for (Prodotto prodotto : purchasedProducts) {
-            purchasedProducts.remove(prodotto);
-            prodottiStored.remove(prodotto);
-        }
+        this.purchasedProducts.clear();
     }
+
 }
