@@ -1,5 +1,5 @@
 public class Prodotto {
-    private TipoProdotto tipo;
+    private final TipoProdotto tipo;
     private String produttore;
     private String modello;
     private String descrizione;
@@ -24,19 +24,16 @@ public class Prodotto {
         this.id = id;
     }
 
-    public Prodotto(TipoProdotto tipo, String produttore, String modello, float prezzoVendita) {
+    public Prodotto(TipoProdotto tipo, String produttore, String modello, float prezzoVendita, int id) {
         this.tipo = tipo;
         this.produttore = produttore;
         this.modello = modello;
         this.prezzoVendita = prezzoVendita;
+        this.id = id;
     }
 
     public TipoProdotto getTipo() {
         return tipo;
-    }
-
-    public void setTipo(TipoProdotto tipo) {
-        this.tipo = tipo;
     }
 
     public String getProduttore() {
